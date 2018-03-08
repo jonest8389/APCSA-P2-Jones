@@ -1,0 +1,36 @@
+public class Numbers
+{
+	public static boolean isGoofy(int num)
+	{
+		String gS = Integer.toString(num);
+		System.out.println((int)0);
+		System.out.println((int)9);
+		int gSum = 0;
+		for (int i = 0;i < gS.length();i++)
+		{
+			
+			System.out.println(gS.charAt(i));
+			if (num % gS.charAt(i) == 0)
+			{
+				gSum = gSum + gS.charAt(i);
+			}
+		}
+		if (gSum % 2 != 0)
+		{
+			return true;
+		}
+		return false;
+	}
+	public static int[] getSomeGoofyNumbers(int count)
+	{
+		int[] returncount = new int[(count + 1)];
+		for (int i = 0;i < (count + 1);i++)
+		{
+			if (isGoofy(i) == true)
+			{
+				returncount[i] = i;
+			}		
+		}
+		return returncount;
+	}
+}

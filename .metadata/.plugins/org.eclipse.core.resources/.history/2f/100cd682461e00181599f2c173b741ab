@@ -1,0 +1,16 @@
+public class NumTest
+{
+	public static void main(String[] args)
+	{
+		
+		Numbers test = new Numbers();
+		
+		System.out.println("12" + test.isGoofy(12));
+		System.out.println("15" + test.isGoofy(15));
+		System.out.println("1234" + test.isGoofy(1234));
+		
+	}
+	
+	
+	
+}
