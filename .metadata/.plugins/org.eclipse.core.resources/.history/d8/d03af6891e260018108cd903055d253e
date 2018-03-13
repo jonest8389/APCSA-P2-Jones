@@ -1,0 +1,160 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class -
+//Lab  -
+
+import java.util.Arrays;
+import java.util.Scanner;
+import static java.lang.System.*;
+import static java.util.Arrays.*;
+
+public class Grades
+{
+	private double[] grades;
+	
+	public Grades()
+	{
+		setGrades("");
+	}
+	
+	public Grades(String gradeList)
+	{
+		setGrades(gradeList);		
+	}
+	
+	public void setGrades(String gradeList)
+	{
+		String[] gNListT = new String[50];
+		int gNLsize = 0;
+		for (int i = 0;i < gradeList.length();i++)
+		{
+			gNListT[i] = Character.toString(gradeList.charAt(i));
+			gNLsize++;
+		}
+		String[] gNList = new String[gNLsize];
+		int iter1 = 0;
+		for (int j = 0;j < gradeList.length();j++)
+		{
+			if (!(gNListT[j].equals(null)))
+			{
+				gNList[iter1] = gNListT[j];
+				iter1++;
+			}
+		}
+		int iter2 = 0;
+		String appS = "";
+		double[] dgL = new double[10];
+		for (int k = 0;k < gNList.length;k++)
+		{
+			if (k == 0)
+			{
+				dgL[iter2] = (double)Integer.parseInt(gNList[iter2]);
+				iter2++;
+			}
+			else if (k > 3)
+			{
+				
+				double appD;
+				if (gNList[k].equals(" "))
+				{
+					appD = Double.parseDouble(appS);
+					dgL[iter2] = appD;
+					iter2++;
+					appS = "";
+				}
+				else
+				{
+					appS = appS + gNList[k];
+				}
+			}
+		}
+		double[] dgLT = new double[(int)dgL[0] + 1];
+		for (int m = 0; m < dgL.length;m++)
+		{
+			if (dgL[m] != 0.0)
+			{
+				dgLT[m] = dgL[m];
+			}
+		}
+		out.println("");
+		for (int n = 0; n < dgLT.length;n++)
+		{
+			out.print(dgLT[n] + " ");
+		}
+		out.println("");
+		for (int n = 0; n < dgL.length;n++)
+		{
+			out.print(dgL[n] + " ");
+		}
+		double[] grades = new double[(int)dgLT[0]];
+		this.grades = grades;
+		for (int l = 1;l < dgLT.length;l++)
+		{
+			setGrade(l,dgLT[l]);
+		}
+
+	}
+	
+	public void setGrade(int spot, double grade)
+	{
+
+		// Assuming "spot" is a number position and not 
+		// an array-oriented reference
+		spot = spot - 1;
+		grades[spot] = grade;
+
+	}
+	
+	public double getSum()
+	{
+		double sum=0.0;
+		for (int i = 0;i < grades.length;i++)
+		{
+			sum = sum + grades[i];
+		}
+		return sum;
+	}
+	
+	public double getLowGrade()
+	{
+		double low = Double.MAX_VALUE;	
+		for (int i = 0;i < grades.length;i++)
+		{
+			if (grades[i] < low)
+			{
+				low = grades[i];
+			}
+		}
+		return low;
+	}
+	
+	public double getHighGrade()
+	{
+		double high = Double.MIN_VALUE;
+		for (int i = 0;i < grades.length;i++)
+		{
+			if (grades[i] > high)
+			{
+				high = grades[i];
+			}
+		}
+		return high;
+	}
+	
+	public int getNumGrades()
+	{
+		return grades.length;
+	}
+	
+	public String toString()
+	{
+		String output="";
+
+
+
+
+
+		return output;
+	}	
+}
