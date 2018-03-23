@@ -1,0 +1,41 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class -
+//Lab  -
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+import static java.lang.System.*;
+
+public class Lab21i
+{
+	public static void main( String args[] ) throws IOException
+	{
+		Scanner file = new Scanner(new File("C:\\Users\\jonest8389\\Desktop\\APCSA-P2-Jones\\Unit14\\src\\lab21i.dat"));
+		int maze1size = Integer.parseInt(file.nextLine());
+		int[][] maze1 = new int[maze1size][maze1size];
+		String mazeline = file.nextLine();
+		int iter = 0;
+		for (int i = 0; i < maze1size; i++)
+		{
+			for (int j = 0; j < maze1size;j++)
+			{
+				maze1[i][j] = Integer.parseInt(Character.toString(mazeline.charAt(iter)));
+				iter = iter + 2;
+			}
+		}
+		for (int k = 0;k < maze1size;k++)
+		{
+			for (int l = 0; l < maze1size;l++)
+			{
+				out.print(maze1[k][l] + " ");
+			}
+			out.println();
+		}
+		
+		
+		
+	}
+}
