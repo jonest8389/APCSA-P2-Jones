@@ -15,24 +15,42 @@ public class FancyWords
 
 	public FancyWords(String sentence)
 	{
-
+		setWords(sentence);
 	}
 
 	public void setWords(String sentence)
 	{
-
+		wordRay = sentence.split(" ");
 	}
 
 	public String toString()
 	{
 		String output="";
 		int max = Integer.MIN_VALUE;
-
-
-
-
-
-
+		Collections.reverse(Arrays.asList(wordRay));
+		for (int i = 0;i < wordRay.length;i++)
+		{
+			if (wordRay[i].length() > max)
+			{
+				max = wordRay[i].length();
+			}
+			wordRay[i] = new StringBuffer(wordRay[i]).reverse().toString();
+		}
+		for (int j = 0;j < max;j++)
+		{
+			for (int k = 0;k < wordRay.length;k++)
+			{
+				if (j < wordRay[k].length())
+				{
+					output = output + wordRay[k].charAt(j);
+				}
+				else
+				{
+					output = output + " ";
+				}
+			}
+			output = output + "\n";
+		}
 		return output+"\n\n";
 	}
 }
