@@ -98,6 +98,21 @@ public class Picture extends SimplePicture
     }
   }
   
+  public void fixUnderwater()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        if (pixelObj.getBlue() > 160 && pixelObj.getGreen() < 170)
+        {
+        	pixelObj.setRed(pixelObj.getRed() + 200);
+        }
+      }
+    }
+  }
+  
   
   public void grayscale()
   {

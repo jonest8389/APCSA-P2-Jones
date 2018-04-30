@@ -40,12 +40,28 @@ public class PictureTester
     beach.explore();
   }
   
+  public static void testFixUnderwater()
+  {
+    Picture beach = new Picture("C:\\Users\\jonest8389\\Desktop\\APCSA-P2-Jones\\Unit16\\src\\images\\water.jpg");
+    beach.explore();
+    beach.fixUnderwater();
+    beach.explore();
+  }
+  
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
     Picture caterpillar = new Picture("C:\\Users\\jonest8389\\Desktop\\APCSA-P2-Jones\\Unit16\\src\\images\\beach.jpg");
     caterpillar.explore();
     caterpillar.mirrorVertical();
+    caterpillar.explore();
+  }
+  
+  public static void testBlur()
+  {
+    Picture2 caterpillar = new Picture2("C:\\Users\\jonest8389\\Desktop\\APCSA-P2-Jones\\Unit16\\src\\images\\beach.jpg");
+    caterpillar.explore();
+    caterpillar.blur(1, 1, 400, 400);
     caterpillar.explore();
   }
   public static void testMirrorVerticalRightToLeft()
@@ -131,6 +147,7 @@ public class PictureTester
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();
+	testBlur();
     //testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();
