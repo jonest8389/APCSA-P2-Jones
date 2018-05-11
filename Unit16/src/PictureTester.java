@@ -40,6 +40,24 @@ public class PictureTester
     beach.explore();
   }
   
+  public static void testEncodeDecode()
+  {
+    Picture beach = new Picture("C:\\Users\\jonest8389\\Desktop\\APCSA-P2-Jones\\Unit16\\src\\images\\beach.jpg");
+    beach.explore();
+    beach.Encoder();
+    beach.explore();
+    beach.Decoder().explore();
+  }
+  
+  public static void testEncodeExample()
+  {
+    Picture beach = new Picture("C:\\Users\\jonest8389\\Desktop\\APCSA-P2-Jones\\Unit16\\src\\images\\beach.jpg");
+    beach.explore();
+    beach.encodetest(beach);
+    beach.explore();
+    beach.decodetest().explore();
+  }
+  
   public static void testFixUnderwater()
   {
     Picture beach = new Picture("C:\\Users\\jonest8389\\Desktop\\APCSA-P2-Jones\\Unit16\\src\\images\\water.jpg");
@@ -147,7 +165,7 @@ public class PictureTester
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();
-	testBlur();
+	//testBlur();
     //testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();
@@ -160,6 +178,8 @@ public class PictureTester
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();
+	//testEncodeExample();
+	  testEncodeDecode();
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();

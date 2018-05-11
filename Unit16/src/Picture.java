@@ -140,6 +140,102 @@ public class Picture extends SimplePicture
 	  }
 	  
   }
+  public void encodetest(Picture messagePict)
+  {
+  Pixel[][] messagePixels = messagePict.getPixels2D();
+  Pixel[][] currPixels = this.getPixels2D();
+  Pixel currPixel = null;
+  Pixel messagePixel = null;
+  int count = 0;
+  for (int row = 0; row < this.getHeight(); row++)
+  {
+  for (int col = 0; col < this.getWidth(); col++)
+  {
+  // if the current pixel red is odd make it even
+  currPixel = currPixels[row][col];
+  if (currPixel.getRed() % 2 == 1)
+  currPixel.setRed(currPixel.getRed() - 1);
+  messagePixel = messagePixels[row][col];
+  if (messagePixel.colorDistance(Color.BLACK) < 50)
+  {
+  currPixel.setRed(currPixel.getRed() + 1);
+  count++;
+  }
+  }
+  }
+  System.out.println(count);
+  }
+  /**
+  * Method to decode a message hidden in the
+  * red value of the current picture
+  * @return the picture with the hidden message
+  */
+  public Picture decodetest()
+  {
+  Pixel[][] pixels = this.getPixels2D();
+  int height = this.getHeight();
+  int width = this.getWidth();
+  Pixel currPixel = null;
+
+  Pixel messagePixel = null;
+  Picture messagePicture = new Picture(height,width);
+  Pixel[][] messagePixels = messagePicture.getPixels2D();
+  int count = 0;
+  for (int row = 0; row < this.getHeight(); row++)
+  {
+  for (int col = 0; col < this.getWidth(); col++)
+  {
+  currPixel = pixels[row][col];
+  messagePixel = messagePixels[row][col];
+  if (currPixel.getRed() % 2 == 1)
+  {
+  messagePixel.setColor(Color.BLACK);
+  count++;
+  }
+  }
+  }
+  System.out.println(count);
+  return messagePicture;
+  }
+  
+  
+  public void Encoder()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  for (Pixel[] row : pixels)
+	  {
+		  for (Pixel pix : row)
+		  {
+			  if (pix.getBlue() >= 210 && pix.getGreen() >= 200)
+			  {
+				  if (pix.getBlue() % 2 != 0)
+				  {
+					  pix.setBlue(pix.getBlue() + 1);
+				  }
+			  }
+		  }
+	  }
+	  
+  }
+  
+  public Picture Decoder()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  int height = this.getHeight(); int width = this.getWidth();
+	  Picture decodedPicture = new Picture(height,width);
+	  Pixel[][] decodedPixels = decodedPicture.getPixels2D();
+	  for (int row = 0;row < height;row++)
+	  {
+		  for (int col = 0;col < width;col++)
+		  {
+			  if (pixels[row][col].getBlue() >= 210 && pixels[row][col].getGreen() >= 200 && pixels[row][col].getBlue() % 2 == 0)
+			  {
+				  decodedPixels[row][col].setColor(Color.BLACK);
+			  }
+		  }
+	  }
+	  return decodedPicture;
+  }
   
   public void negate()
   {
